@@ -51,9 +51,16 @@
         </dependency>
 
         <dependency>
+            <groupId>com.final-project.automated-refactoring-tool</groupId>
+            <artifactId>locs-detection</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -83,6 +90,15 @@
         <repository>
             <id>Automated-Refactoring-Tool-NOF-Detection</id>
             <url>https://raw.github.com/zapahlevie/Automated-Refactoring-Tool-NOF-Detection/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>Automated-Refactoring-Tool-Locs-Detection</id>
+            <url>https://raw.github.com/zapahlevie/Automated-Refactoring-Tool-Locs-Detection/mvn-repo/</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
