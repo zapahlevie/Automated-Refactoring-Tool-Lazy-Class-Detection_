@@ -22,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,10 +32,10 @@ public class LazyClassDetectionImplTest {
     private LazyClassDetectionImpl lazyClassDetection;
 
     @MockBean
-    private NOMDetection nomDetections;
+    private NOMDetection nomDetection;
 
     @MockBean
-    private NOFDetection nofDetections;
+    private NOFDetection nofDetection;
 
     private static final Integer FIRST_INDEX = 0;
     private static final Integer SECOND_INDEX = 1;
@@ -52,6 +53,16 @@ public class LazyClassDetectionImplTest {
     @Before
     public void setUp() {
         classModels = createClassModels();
+
+        when(nomDetection.nomDetection(eq(classModels.get(FIRST_INDEX))))
+                .thenReturn(FIRST_INDEX_NOM);
+        when(nomDetection.nomDetection(eq(classModels.get(SECOND_INDEX))))
+                .thenReturn(SECOND_INDEX_NOM);
+
+        when(nofDetection.nofDetection(eq(classModels.get(FIRST_INDEX))))
+                .thenReturn(FIRST_INDEX_NOF);
+        when(nofDetection.nofDetection(eq(classModels.get(SECOND_INDEX))))
+                .thenReturn(SECOND_INDEX_NOF);
     }
 
     @Test
@@ -60,7 +71,7 @@ public class LazyClassDetectionImplTest {
         assertNotNull(classModel);
         assertEquals(classModels.get(FIRST_INDEX), classModel);
         assertEquals("TestClassImpl", classModel.getName());
-        //assertEquals(2, classModel.getNom().intValue());
+        assertEquals(2, classModel.getNom().intValue());
         assertEquals(1, classModel.getNof().intValue());
     }
 

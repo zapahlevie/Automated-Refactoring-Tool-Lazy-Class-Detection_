@@ -1,10 +1,10 @@
 package com.finalproject.automated.refactoring.tool.lazy.classes.detection.service.implementation;
 
 import com.finalproject.automated.refactoring.tool.lazy.classes.detection.service.LazyClassDetection;
-import com.finalproject.automated.refactoring.tool.lazy.classes.detection.service.NOMDetections;
 import com.finalproject.automated.refactoring.tool.locs.detection.service.LocsDetection;
 import com.finalproject.automated.refactoring.tool.model.ClassModel;
 import com.finalproject.automated.refactoring.tool.nof.detection.service.NOFDetection;
+import com.finalproject.automated.refactoring.tool.nom.detection.service.NOMDetection;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class LazyClassDetectionImpl implements LazyClassDetection {
     private LocsDetection locsDetection;
 
     @Autowired
-    private NOMDetections nomDetections;
+    private NOMDetection nomDetection;
 
     @Autowired
     private NOFDetection nofDetection;
@@ -46,8 +46,8 @@ public class LazyClassDetectionImpl implements LazyClassDetection {
     }
 
     private ClassModel metricsCalculation(ClassModel classModel) {
-        Long nom = nomDetections.nomDetections(classModel);
-        Long nof = (long) classModel.getAttributes().size();
+        Long nom = nomDetection.nomDetection(classModel);
+        Long nof = nofDetection.nofDetection(classModel);
         classModel.setNom(nom);
         classModel.setNof(nof);
 
