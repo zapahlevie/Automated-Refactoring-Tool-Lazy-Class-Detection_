@@ -92,11 +92,7 @@ public class LazyClassDetectionImplTest {
                         .name("TestClassImpl")
                         .extend("")
                         .implement("TestClass")
-                        .attributes(Collections.singletonList(
-                                PropertyModel.builder()
-                                        .type("Integer")
-                                        .name("number")
-                                        .build()))
+                        .attributes(Arrays.asList("Integer time"))
                         .methodModels(Arrays.asList(
                                 MethodModel.builder()
                                         .keywords(Collections.singletonList("public"))
@@ -131,30 +127,11 @@ public class LazyClassDetectionImplTest {
                         .extend("")
                         .implement("TestClass")
                         .attributes(Arrays.asList(
-                                PropertyModel.builder()
-                                        .type("Integer")
-                                        .name("number")
-                                        .build(),
-                                PropertyModel.builder()
-                                        .type("String")
-                                        .name("name")
-                                        .build(),
-                                PropertyModel.builder()
-                                        .type("Integer")
-                                        .name("phone")
-                                        .build(),
-                                PropertyModel.builder()
-                                        .type("Date")
-                                        .name("time")
-                                        .build(),
-                                PropertyModel.builder()
-                                        .type("Boolean")
-                                        .name("available")
-                                        .build(),
-                                PropertyModel.builder()
-                                        .type("String")
-                                        .name("addr")
-                                        .build()))
+                                "Integer number",
+                                "Integer phone",
+                                "Date time",
+                                "Boolean available",
+                                "String addr"))
                         .methodModels(Arrays.asList(
                                 MethodModel.builder()
                                         .keywords(Collections.singletonList("public"))
