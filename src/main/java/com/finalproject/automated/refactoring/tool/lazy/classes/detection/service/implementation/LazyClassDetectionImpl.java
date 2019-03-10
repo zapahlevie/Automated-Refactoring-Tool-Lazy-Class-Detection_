@@ -38,7 +38,8 @@ public class LazyClassDetectionImpl implements LazyClassDetection {
     }
 
     @Override
-    public List<ClassModel> detect(@NonNull List<ClassModel> classModels, @NonNull Long threshold) {
+    public List<ClassModel> detect(@NonNull List<ClassModel> classModels,
+                                   @NonNull Long threshold) {
         return classModels.stream()
                 .map(this::metricsCalculation)
                 .filter(classModel -> isLazyClass(classModel, threshold))
@@ -55,9 +56,6 @@ public class LazyClassDetectionImpl implements LazyClassDetection {
     }
 
     private Boolean isLazyClass(ClassModel classModel, Long threshold) {
-        if(classModel.getNom() < threshold && classModel.getNof() < threshold)
-            return true;
-        else
-            return false;
+        return classModel.getNom() < threshold && classModel.getNof() < threshold;
     }
 }
