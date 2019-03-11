@@ -40,13 +40,13 @@
 
         <dependency>
             <groupId>com.final-project.automated-refactoring-tool</groupId>
-            <artifactId>NOM-detection</artifactId>
+            <artifactId>nom-detection</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.final-project.automated-refactoring-tool</groupId>
-            <artifactId>NOF-detection</artifactId>
+            <artifactId>nof-detection</artifactId>
             <version>${project.version}</version>
         </dependency>
 
