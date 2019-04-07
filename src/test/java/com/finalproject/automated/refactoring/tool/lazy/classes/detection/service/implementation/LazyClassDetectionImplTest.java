@@ -87,7 +87,7 @@ public class LazyClassDetectionImplTest {
                 ClassModel.builder()
                         .packageName("com.finalproject.automated.refactoring.tool")
                         .imports(Arrays.asList("import java.util.ArrayList", "import java.util.Arrays;"))
-                        .contentOuter("this is content; \n and this is too; \n plus; \n hmm;")
+                        .fullContent("this is content; \n and this is too; \n plus; \n hmm;")
                         .keywords(Collections.singletonList("public"))
                         .name("TestClassImpl")
                         .extend("")
@@ -114,14 +114,13 @@ public class LazyClassDetectionImplTest {
                                         .build()
 
                         ))
-                        .contentInner("")
                         .build()
         );
         classModels.add(
                 ClassModel.builder()
                         .packageName("com.finalproject.automated.refactoring.tool")
                         .imports(Arrays.asList("import java.util.ArrayList", "import java.util.Arrays;"))
-                        .contentOuter("")
+                        .fullContent("")
                         .keywords(Collections.singletonList("public"))
                         .name("TestClassImpl")
                         .extend("")
@@ -181,7 +180,6 @@ public class LazyClassDetectionImplTest {
                                         .body("")
                                         .build()
                         ))
-                        .contentInner("")
                         .build()
         );
 

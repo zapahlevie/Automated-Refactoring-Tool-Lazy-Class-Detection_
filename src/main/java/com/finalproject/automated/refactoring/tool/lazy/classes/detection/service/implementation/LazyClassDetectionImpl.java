@@ -47,10 +47,12 @@ public class LazyClassDetectionImpl implements LazyClassDetection {
     }
 
     private ClassModel metricsCalculation(ClassModel classModel) {
+        Long loc = locsDetection.llocDetection(classModel.getFullContent());
         Long nom = nomDetection.nomDetection(classModel);
         Long nof = nofDetection.nofDetection(classModel);
         classModel.setNom(nom);
         classModel.setNof(nof);
+        classModel.setLoc(loc);
 
         return classModel;
     }
